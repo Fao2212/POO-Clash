@@ -5,6 +5,9 @@
  */
 package GUI;
 
+import Logic.ControladorFabricaPueblos;
+import java.awt.Button;
+
 /**
  *
  * @author ferol
@@ -12,9 +15,12 @@ package GUI;
 public class formCreadorPueblos extends javax.swing.JFrame {
 
     public customLabel matrizPantalla[][];
+    public customLabel listaSpritePantalla[][];
+    private ControladorFabricaPueblos controlador;
     
-    public formCreadorPueblos() {
+    public formCreadorPueblos(ControladorFabricaPueblos controlador) {
         initComponents();
+        this.controlador = controlador;
     }
 
     /**
@@ -29,7 +35,9 @@ public class formCreadorPueblos extends javax.swing.JFrame {
         jFrame1 = new javax.swing.JFrame();
         jFrame2 = new javax.swing.JFrame();
         jPanel1 = new javax.swing.JPanel();
-        jPanel2 = new javax.swing.JPanel();
+        butonCancel = new javax.swing.JButton();
+        butonAcept = new javax.swing.JButton();
+        scrollPanelSprites = new javax.swing.JPanel();
 
         javax.swing.GroupLayout jFrame1Layout = new javax.swing.GroupLayout(jFrame1.getContentPane());
         jFrame1.getContentPane().setLayout(jFrame1Layout);
@@ -65,20 +73,34 @@ public class formCreadorPueblos extends javax.swing.JFrame {
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 304, Short.MAX_VALUE)
+        );
+
+        butonCancel.setText("Cancel");
+        butonCancel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butonCancelActionPerformed(evt);
+            }
+        });
+
+        butonAcept.setText("Crear");
+        butonAcept.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                butonAceptActionPerformed(evt);
+            }
+        });
+
+        scrollPanelSprites.setBackground(new java.awt.Color(102, 102, 102));
+
+        javax.swing.GroupLayout scrollPanelSpritesLayout = new javax.swing.GroupLayout(scrollPanelSprites);
+        scrollPanelSprites.setLayout(scrollPanelSpritesLayout);
+        scrollPanelSpritesLayout.setHorizontalGroup(
+            scrollPanelSpritesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-
-        jPanel2.setBackground(new java.awt.Color(153, 153, 153));
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 151, Short.MAX_VALUE)
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 304, Short.MAX_VALUE)
+        scrollPanelSpritesLayout.setVerticalGroup(
+            scrollPanelSpritesLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 273, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -89,30 +111,51 @@ public class formCreadorPueblos extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(butonCancel, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(butonAcept, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(scrollPanelSprites, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(20, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(scrollPanelSprites, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(butonCancel)
+                            .addComponent(butonAcept))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void butonCancelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonCancelActionPerformed
+        dispose();
+    }//GEN-LAST:event_butonCancelActionPerformed
+
+    private void butonAceptActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_butonAceptActionPerformed
+        controlador.crearPueblo();
+    }//GEN-LAST:event_butonAceptActionPerformed
+
     /**
      * @param args the command line arguments
      */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton butonAcept;
+    private javax.swing.JButton butonCancel;
     private javax.swing.JFrame jFrame1;
     private javax.swing.JFrame jFrame2;
     public javax.swing.JPanel jPanel1;
-    public javax.swing.JPanel jPanel2;
+    public javax.swing.JPanel scrollPanelSprites;
     // End of variables declaration//GEN-END:variables
 }

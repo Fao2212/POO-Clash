@@ -5,6 +5,7 @@
  */
 package GUI;
 
+import TDA.Sprite;
 import java.awt.Color;
 import javax.swing.JLabel;
 
@@ -14,15 +15,17 @@ import javax.swing.JLabel;
  */
 public class customLabel {
     
-    public static final Color DEFAULT_COLOR = new Color(25, 10, 51);
+    public Color color = new Color(25, 10, 51);
     public JLabel label;
     private boolean empty = false;
+    Sprite sprite;
+    public int x,y;
     
     public customLabel() {
         
         label = new JLabel();
         label.setOpaque(true);
-        label.setBackground(Color.DARK_GRAY);
+        label.setBackground(color);
         label.setText("");
         label.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(153, 153, 153)));      
     }
@@ -33,5 +36,34 @@ public class customLabel {
 
     public void setEmpty(boolean empty) {
         this.empty = empty;
-    } 
+    }
+
+    public void setColor(Color color) {
+        this.color = color;
+        this.label.setBackground(color);
+    }
+
+    public Color getColor() {
+        return color;
+    }
+
+    public Sprite getSprite() {
+        return sprite;
+    }
+
+    public void setSprite(Sprite sprite) {
+        this.sprite = sprite;
+    }
+
+    
+    
+    public JLabel getLabel() {
+        return label;
+    }
+
+    public void setLabel(JLabel label) {
+        this.label = label;
+    }
+    
+    
 }

@@ -5,14 +5,27 @@
  */
 package TDA.HarmlessObject;
 
+import Enums.tiposDeSprite;
 import TDA.Harmless;
 
 /**
  *
  * @author ferol
  */
-public abstract class CasaDeDuendes extends Harmless{
+public class CasaDeDuendes extends Harmless{
     private int cantidadDeOro;
+
+    public CasaDeDuendes() {
+        this.cantidadDeVida = 200;
+        this.nivel = 1;
+        this.nombre = "Casa De Duendes";
+        this.prioridad = 3;
+        this.cantidadDeOro = 2000;
+        this.tipo = tiposDeSprite.Harmless;
+        
+    }
+    
+    
 
     public int getCantidadDeOro() {
         return cantidadDeOro;
@@ -20,6 +33,21 @@ public abstract class CasaDeDuendes extends Harmless{
 
     public void setCantidadDeOro(int cantidadDeOro) {
         this.cantidadDeOro = cantidadDeOro;
+    }
+
+    @Override
+    public void morir() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void subirDeNivel() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void doAction() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

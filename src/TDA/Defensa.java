@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public abstract class Defensa extends Harmfull{
     
     protected ArrayList<tiposDeGuerrero> preferencia;//Tipo de guerrero
+    protected int prioridad;
     
     public Defensa(Animation animacion,int cantidadDeVida,
                     int[] golpePorSegundo, int nivelDeAparicion,String nombre,int rango) {
@@ -29,6 +30,8 @@ public abstract class Defensa extends Harmfull{
         this.nombre = nombre;
         this.preferencia = new ArrayList<tiposDeGuerrero>();
         this.tipo = tiposDeSprite.Defensa;
+        this.prioridad = 2;
+        
     }
 
     public Defensa() {

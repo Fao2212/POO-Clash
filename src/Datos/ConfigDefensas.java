@@ -14,7 +14,10 @@ import java.util.ArrayList;
  */
 public class ConfigDefensas {
         public static void guardarNuevaDefensa(ArrayList<Defensa> defensas){//Una clase administrador que use todos los metodos estaticos
-        FileManager.FileManager.writeObject(defensas, "Defensas.config");
+        if(defensas != null)
+            FileManager.FileManager.writeObject(defensas, "Defensas.config");
+        else
+                System.out.println("Error al guardar");
     }
     
     public static ArrayList<Defensa> cargarDefensas(){

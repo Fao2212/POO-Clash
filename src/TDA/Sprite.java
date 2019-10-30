@@ -8,12 +8,13 @@ package TDA;
 import Enums.tiposDeSprite;
 import GUI.Animation;
 import java.awt.Point;
+import java.io.Serializable;
 
 /**
  *
  * @author ferol
  */
-public abstract class Sprite {//Puede ser para la interfaz 
+public abstract class Sprite implements Serializable,Cloneable{//Puede ser para la interfaz 
     
     protected String nombre;
     protected Animation animacion;
@@ -86,5 +87,9 @@ public abstract class Sprite {//Puede ser para la interfaz
         this.tipo = tipo;
     }
     
+    @Override
+    public Object clone() throws CloneNotSupportedException{  
+        return super.clone();
+    }
     
 }

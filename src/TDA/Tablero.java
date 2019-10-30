@@ -5,11 +5,13 @@
  */
 package TDA;
 
+import java.io.Serializable;
+
 /**
  *
  * @author ferol
  */
-public class Tablero {//Crear un thread para cada Sprite pueden desecharse , no se necesitan para guardar la partida
+public class Tablero implements Serializable,Cloneable{//Crear un thread para cada Sprite pueden desecharse , no se necesitan para guardar la partida
     
     private final Slots size[][];
     private final int DIMENSIONES = 70;//Tamano original 60 + evitar choques con nulos

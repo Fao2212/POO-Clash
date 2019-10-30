@@ -11,11 +11,15 @@ import clash.Partida;
  *
  * @author ferol
  */
-public class ConfigPartida {
+public class ConfigPartida {//Revisar como relacionar con cada usuario o si solo guardar el usuario con su partida actual
+    //Boolean para las partidas en partida o fuera de partida
     
         public static void guardarNuevaPartida(Partida partida){
         System.out.println(partida.getUser()+".config");
-        FileManager.FileManager.writeObject(partida, partida.getUser()+".config");
+        if(partida != null)
+            FileManager.FileManager.writeObject(partida, partida.getUser()+".config");
+        else
+                System.out.println("Error al guardar");
     }
     
     public static Partida cargarPartida(String name){

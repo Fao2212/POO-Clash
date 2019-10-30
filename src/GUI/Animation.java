@@ -6,13 +6,14 @@
 package GUI;
 
 import java.awt.Image;
+import java.io.Serializable;
 import java.util.ArrayList;
 
 /**
  *
  * @author ferol
  */
-public class Animation {
+public class Animation implements Serializable{
     
     private ArrayList<Image> frames;
     private int actualFrame;

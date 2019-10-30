@@ -6,12 +6,13 @@
 package TDA;
 
 import Enums.tiposDeSprite;
+import java.io.Serializable;
 
 /**
  *
  * @author ferol
  */
-public class Slots {
+public class Slots implements Serializable,Cloneable{
     Sprite sprite;
     tiposDeSprite tipo;
     boolean empty;

@@ -15,7 +15,10 @@ import java.util.ArrayList;
 public class ConfigGuerreos {//Guardar un archivo con los guerreros guardados/Devuelve todos los guerreros en memoria
     
     public static void guardarNuevoGuerrero(ArrayList<Guerrero> guerreros){//Una clase administrador que use todos los metodos estaticos
-        FileManager.FileManager.writeObject(guerreros, "Guerreros.config");
+        if(guerreros != null)
+            FileManager.FileManager.writeObject(guerreros, "Guerreros.config");
+        else
+            System.out.println("Error al guardar");
     }
     
     public static ArrayList<Guerrero> cargarGuerreros(){

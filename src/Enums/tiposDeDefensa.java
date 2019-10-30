@@ -10,5 +10,5 @@ package Enums;
  * @author ferol
  */
 public enum tiposDeDefensa {
-    Aereo,Bomba,Canon,Mortero,TorreArquero
+    Aereo ,Bomba,Canon,Mortero,TorreArquero
 }

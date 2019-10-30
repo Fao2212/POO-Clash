@@ -6,6 +6,7 @@
 package TDA;
 
 import GUI.Animation;
+import java.io.Serializable;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 import java.util.ArrayList;
@@ -14,13 +15,22 @@ import java.util.ArrayList;
  *
  * @author ferol
  */
-public class Ejercito {
+public class Ejercito implements Serializable,Cloneable{
     
     private int cantidadDeCampos;
     private int cantidadMaximaDeCampos;
     private ArrayList<Guerrero> ejercito;//Podira declararse publico
     private ArrayList<Guerrero> guerreros;
     private int nivel;
+
+    public Ejercito() {//De donde putas me saco la referencia de los guerreros plantilla
+        this.cantidadDeCampos = 0;
+        this.cantidadMaximaDeCampos = 20;
+        this.ejercito = new ArrayList<>();
+        this.nivel = 1;
+    }
+    
+    
 
     public int getCantidadDeCampos() {
         return cantidadDeCampos;
@@ -46,7 +56,7 @@ public class Ejercito {
         this.ejercito = ejercito;
     }
     
-    private void agregarGuerrero(String nombre)
+    private void agregarGuerrero(String nombre)//Revisar este metodo o usar el clone
         throws NoSuchMethodException, 
             InstantiationException, 
             IllegalAccessException, 

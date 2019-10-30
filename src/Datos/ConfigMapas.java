@@ -5,7 +5,7 @@
  */
 package Datos;
 
-import GUI.Mapa;
+import TDA.Pueblo;
 import java.util.ArrayList;
 
 
@@ -14,11 +14,14 @@ import java.util.ArrayList;
  * @author ferol
  */
 public class ConfigMapas {//Guardar un archivo con los mapas creados, puedo hacer que la funcion tenga un constructor actualize el array hy lo guarde seguido
-    public static void guardarNuevoMapa(ArrayList<Mapa> mapas){//Una clase administrador que use todos los metodos estaticos
-        FileManager.FileManager.writeObject(mapas, "Mapas.config");
+    public static void guardarNuevoMapa(ArrayList<Pueblo> mapas){//Una clase administrador que use todos los metodos estaticos
+        if(mapas != null)
+            FileManager.FileManager.writeObject(mapas, "Mapas.config");
+        else 
+            System.out.println("Error al guardar");
     }
     
-    public static ArrayList<Mapa> cargarMapas(){
-        return (ArrayList<Mapa>)FileManager.FileManager.readObject("Mapas.config");
+    public static ArrayList<Pueblo> cargarMapas(){
+        return (ArrayList<Pueblo>)FileManager.FileManager.readObject("Mapas.config");
     }
 }
